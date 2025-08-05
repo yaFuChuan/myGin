@@ -89,3 +89,15 @@ INFO	2025/08/05 15:41:17 127.0.0.1:59691 - HTTP/1.1 GET /static/js/getAcc.js?v=1
 INFO	2025/08/05 15:41:18 127.0.0.1:59691 - HTTP/1.1 GET /getCust/
 INFO	2025/08/05 15:41:18 fetch cust list: 8筆,time:0 秒
 INFO	2025/08/05 15:41:41 127.0.0.1:59692 - HTTP/1.1 POST /api/reconciliation
+ERROR	2025/08/05 16:38:18 main.go:77: postgreSql conn failure:⚠️ 無法載入 .env，將使用系統環境變數: open .env: no such file or directory
+INFO	2025/08/05 16:38:18 app.receipts 存貨資料排程開始
+INFO	2025/08/05 16:38:18 目前時間已超過排程時間，立即執行一次任務
+INFO	2025/08/05 16:38:18 執行 log 裁切任務
+INFO	2025/08/05 16:38:18 Starting server on :localhost:4000
+INFO	2025/08/05 16:38:26 127.0.0.1:59783 - HTTP/1.1 GET /
+INFO	2025/08/05 16:38:30 127.0.0.1:59784 - HTTP/1.1 GET /
+INFO	2025/08/05 16:38:32 127.0.0.1:59783 - HTTP/1.1 GET /getAcc/
+INFO	2025/08/05 16:38:32 127.0.0.1:59784 - HTTP/1.1 GET /static/css/getAcc.css
+INFO	2025/08/05 16:38:32 127.0.0.1:59783 - HTTP/1.1 GET /static/js/getAcc.js?v=1754383112
+INFO	2025/08/05 16:38:32 127.0.0.1:59783 - HTTP/1.1 GET /getCust/
+INFO	2025/08/05 16:38:32 fetch cust list: 8筆,time:0 秒

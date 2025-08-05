@@ -13,7 +13,7 @@ import (
 	"net/http"
 	"os"
 	"time"
-	"yafu/internal/models"
+	"github.com/yaFuChuan/myGin/internal/models"
 	//"math"
 	"github.com/alexedwards/scs/v2"
 	//"github.com/alexedwards/scs/mssqlstore"

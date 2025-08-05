@@ -3,8 +3,8 @@ package main
 import (
 	//"github.com/julienschmidt/httprouter"
 	"net/http"
-	"yafu/internal/models"
-	"yafu/internal/validator"
+	"github.com/yaFuChuan/myGin/internal/models"
+	"github.com/yaFuChuan/myGin/internal/validator"
 	"encoding/json"
 	"github.com/go-co-op/gocron"
 	"database/sql"
