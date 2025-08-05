@@ -1,0 +1,120 @@
+.menu {
+  display : none;
+}
+
+/* 設定整個頁面的字型與背景 */
+body {
+  font-family: Arial, sans-serif; /* 主字體 */
+  background-color: #f2f2f2;       /* 淺灰背景 */
+  margin: 0;                       /* 移除預設外邊距 */
+  padding: 20px;                   /* 加入內邊距 */
+}
+
+/* 標題置中 */
+h1, h2 {
+  text-align: center;
+  font-size: 2em;
+  margin-top: 50px;
+  position: relative;
+}
+
+
+/* 人像圖片樣式與動畫 */
+
+.bubble-image {
+      display: inline-block;
+      width: 80px;
+      height: 80px;
+      vertical-align: middle;
+      border-radius: 50%; /* 圓形 */
+      object-fit: cover;  /* 保持比例填滿 */
+      border: 2px solid rgba(255,255,255,0.8); /* 水泡邊框 */
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);   /* 外陰影模擬浮動感 */
+      animation: bubble 3s ease-in-out infinite;
+      position: relative;
+      overflow: hidden;
+      /* 嘗試使用較高品質呈現圖片 */
+      image-rendering: auto;
+      /* 部分瀏覽器可使用 -webkit-optimize-contrast 提升效果 */
+      -webkit-optimize-contrast: true;
+    }
+
+
+/* 利用偽元素增加光澤效果 */
+    .bubble-image::after {
+      content: "";
+      position: absolute;
+      top: 10%;
+      left: 10%;
+      width: 80%;
+      height: 80%;
+      background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.7), transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+/* 定義水泡動畫效果 */
+    @keyframes bubble {
+      0% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+      }
+      50% {
+        transform: translateY(-20px) scale(1.1);
+        opacity: 0.8;
+      }
+      100% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+      }
+    }
+
+/* 表單區塊樣式 */
+form {
+  max-width: 600px;              /* 限制最大寬度 */
+  margin: auto;                  /* 置中顯示 */
+  background-color: #fff;        /* 背景白色 */
+  padding: 20px;                 /* 內邊距 */
+  border-radius: 8px;            /* 圓角 */
+  box-shadow: 0 0 10px rgba(0,0,0,0.1); /* 陰影效果 */
+}
+
+/* 標籤設定：區塊顯示並有間距 */
+form label {
+  display: block;
+  margin-top: 10px;
+}
+
+/* 輸入欄位樣式：寬度 100% 且含內邊距 */
+form input {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  box-sizing: border-box;
+}
+
+/* 按鈕樣式：綠色背景與圓角 */
+form button {
+  margin-top: 15px;
+  padding: 10px 15px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* 按鈕懸停時改變背景色 */
+form button:hover {
+  background-color: #45a049;
+}
+
+/* 暫存清單樣式：與表單類似的容器風格 */
+#tempList {
+  max-width: 600px;
+  margin: 20px auto;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}

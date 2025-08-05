@@ -1,0 +1,78 @@
+
+{{define "head_Import"}}
+
+    <link rel='stylesheet' href='/static/css/main.css' type='text/css'>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.5.3/css/bulma.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.6/css/all.css">
+		<link rel='shortcut icon' href='/static/img/favicon.ico' type='image/x-icon'>
+		<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700'>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Francois+One&display=swap" rel="stylesheet">
+
+{{end}}
+{{define "nav"}}
+<nav class="menu">
+  <ul>
+      <li><a href="/getAcc/">🥳對帳單列</a></li>
+    <!--
+    {{if or (eq .UserRole "purchase") (eq .UserRole "admin")}}
+      <li>
+        🐒採購項目
+        <ul class='subMenu'>
+        
+          <li><a href="/virtualPO/" onclick="return checkPurchaseAccess('/virtualPO/');">&#x1F61B;模擬PO數量</a></li>
+          <li><a href="/conView/" target="_blank" onclick="return checkPurchaseAccess('/conView/');">🤣PO參數配置表</a></li>
+        
+        </ul>
+      </li>
+    {{end}}
+
+      <li>
+        🐒盤點系統
+        <ul class='subMenu'>
+          <li><a href="/currStockView/">&#x1F61B;聯橋盤點系統</a></li>
+          <li><a href="/currStockView_brid/">😎天幕盤點系統</a></li>
+          <li><a href="/currStockView_lmtp/">🤑行善盤點系統</a></li>
+          <li><a href="/stockRWDView/">🥳mobile系統</a></li>
+        </ul>
+      </li>
+    {{if or (eq .UserRole "finance") (eq .UserRole "admin")}}
+      <li>
+        &#x1F513;財務單位
+        <ul class='subMenu'>
+          <li><a href="/sales2023/">&#x1F4B0;2023年聯合系統銷售毛利</a></li>
+          <li><a href="/receipt/">🥹存貨明細表</a></li>
+          <li><a href="/stockAgeView/">😴庫齡資訊</a></li>
+        </ul>
+      </li>
+    {{end}}
+    {{if or (eq .UserRole "marketing") (eq .UserRole "admin")}}
+    
+      <li>
+        🙆開發行銷
+        <ul class='subMenu'>
+          <li><a href="/invView/">💁存貨週轉率(次數)</a></li>
+        </ul>
+      </li>
+    {{end}} 
+      <li>
+        🤑註冊/登入
+        <ul class='subMenu'>
+          <li><a href="/user/signup/">😎註冊</a></li>
+          <li><a href="/user/login/">🥳登入</a></li>
+          <li>
+            <form action='/user/logout' method='POST'>
+              <button>🥹登出</button>
+            </form>
+         
+          </li>
+        </ul>
+      </li>
+    -->
+  </ul>
+</nav>
+
+{{end}}
+

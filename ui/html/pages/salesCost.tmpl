@@ -1,0 +1,223 @@
+{{define "title"}}進銷毛利{{end}}
+  {{define "head_Import"}}
+      <link rel='stylesheet' href='/static/css/sales2023.css' type='text/css'>
+      <link rel='stylesheet' href='/static/css/main.css' type='text/css'>
+  {{end}}
+{{define "main"}}
+ <table>
+  <tr class='thh3'>
+    <th colspan=8>
+      <h3>新高橋集團,2023營業成本</h3>
+                              <p> 列印日期:{{currentDate}}</p>
+    </th>
+  </tr>
+
+  <tr class='data1'>
+    <th>部    門</th>
+    <th>期初存貨</th>  
+    <th class='digital'>購進存貨</th>
+    <th class='digital'>退回存貨</th>
+    <th class='digital'>期末存貨</th>
+    <th class='digital'>銷貨淨額</th>
+    <th class='digital'>銷售成本</th>
+    <th class='digital'>銷售毛利</th>
+  </tr>
+  <tr class='data1'>
+    <td>以 斯 拉</td>
+    <td class='digital'>11,556,775</td>
+    <td class='digital'>59,269,647</td>
+    <td class='digital'>(3,926,759)</td>
+    <td class='digital'></td>
+    <td class='digital'>125,937,428</td>
+    <td class='digital'>57,029,539</td>
+    <td class='digital'>54.75%</td>
+  </tr>
+
+  <tr class='data1'>
+    <td>以斯拉-Sunlike</td>
+    <td class='digital'></td>
+    <td class='digital'>1,251,158</td>
+    <td class='digital'></td>
+    <td class='digital'>8,453,749</td>
+    <td class='digital'>2,613,177</td>
+    <td class='digital'>1,140,504</td>
+    <td class='digital'></td>
+  </tr>
+
+
+
+
+
+  <tr class='data1'>
+    <td>天幕集團</td>
+    <td class='digital'>61,717,462</td>
+    <td class='digital'>267,623,030</td>
+    <td class='digital'>(31,442,516)</td>
+    <td class='digital'></td>
+    <td class='digital'>414,746,126</td>
+    <td class='digital'>197,742,260</td>
+    <td class='digital'>52%</td>
+  </tr>
+
+  <tr class='data1'>
+    <td>天幕-Sunlike</td>
+    <td class='digital'></td>
+    <td class='digital'>21,030,367</td>
+    <td class='digital'>(23,222)</td>
+    <td class='digital'>106,645,526</td>
+    <td class='digital'>14,224,823</td>
+    <td class='digital'>8,169,948</td>
+    <td class='digital'></td>
+  </tr>
+
+
+
+  <tr class='data1'>
+    <td>聯橋集團</td>
+    <td class='digital'>119,478,814</td>
+    <td class='digital'>586,745,737</td>
+    <td class='digital'>(18,613,552)</td>
+    <td class='digital'></td>
+    <td class='digital'>764,739,316</td>
+    <td class='digital'>556,532,565</td>
+    <td class='digital'>27.37%</td>
+  </tr>
+
+  <tr class='data1'>
+    <td>聯橋-Sunlike</td>
+    <td class='digital'></td>
+    <td class='digital'>13,472,033</td>
+    <td class='digital'>(36,280)</td>
+    <td class='digital'>132,665,101</td>
+    <td class='digital'>21,349,129</td>
+    <td class='digital'>14,388,733</td>
+    <td class='digital'></td>
+  </tr>
+
+ </table>
+
+
+{{if .}}
+  <table>
+  <tr class='thh3'>
+    <th colspan=4>
+      <h3>新高橋集團,2023全年銷售狀況-依進價</h3>
+                              <p> 列印日期:{{currentDate}}</p>
+    </th>
+  </tr>
+  <tr class='data1'>
+    <th>部    門</th>
+    <th class='digital'>銷售收入</th>
+    <th class='digital'>銷售成本</th>
+    <th class='digital'>銷售毛利</th>
+  </tr>
+  {{range .PurchaseCost}}
+   <tr class='data1'>
+    <td>{{ .Dep}}</td>
+    <td class='digital'>{{formatZero .Amt 0}}</td>
+    <td class='digital'>{{formatZero .Cost 0}}</td>
+    <td class='digital'>{{formatZero .Profit 0}}</td>
+   </tr>
+  {{end}}
+  </table>
+</br>
+</br>
+  <table>
+  <tr class='thh3'>
+    <th colspan=4>
+      <h3>新高橋集團,2023SunLike銷售狀況-依進價</h3>
+    </th>
+  </tr>
+  <tr class='data1'>
+    <th>部    門</th>
+    <th class='digital'>銷售收入</th>
+    <th class='digital'>銷售成本</th>
+    <th class='digital'>銷售毛利</th>
+  </tr>
+  {{range .ErpCost}}
+   <tr class='data1'>
+    <td>{{ .Dep}}</td>
+    <td class='digital'>{{formatZero .Amt 0}}</td>
+    <td class='digital'>{{formatZero .Cost 0}}</td>
+    <td class='digital'>{{formatZero .Profit 0}}</td>
+   </tr>
+  {{end}}
+  </table>
+</br>
+</br>
+
+<!--
+  <table>
+  <tr class='thh3'>
+    <th colspan=4>
+      <h3>新高橋集團,2023全年銷售狀況-依聯合成本單價</h3>
+    </th>
+  </tr>
+  <tr class='data1'>
+    <th>部    門</th>
+    <th class='digital'>銷售收入</th>
+    <th class='digital'>銷售成本</th>
+    <th class='digital'>銷售毛利</th>
+  </tr>
+  {{range .UnitedCost}}
+   <tr class='data1'>
+    <td>{{ .Dep}}</td>
+    <td class='digital'>{{formatZero .Amt 0}}</td>
+    <td class='digital'>{{formatZero .Cost 0}}</td>
+    <td class='digital'>{{formatZero .Profit 0}}</td>
+   </tr>
+  {{end}}
+  </table>
+-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
+  <table>
+    <tr class='thh3'>
+      <th colspan=8>
+        <h3>新高橋集團,貨品明細資料</h3> 
+                    <p> 列印日期:{{currentDate}}</p> 
+      </th>
+    </tr>
+  <tr class='data1'>
+    <th>年    度</th>
+    <th>部    門</th>
+    <th>貨品品號</th>
+    <th>貨品品名</th>
+    <th class='digital'>數    量</th>
+    <th class='digital'>金    額</th>
+    <th class='digital'>成    本</th>
+    <th class='digital'>銷貨毛利</th>
+  </tr>
+  {{range .SalesAcc}}
+   <tr class='data1'>
+    <td>{{ .Annual}}</td>
+    <td>{{ .Dep}}</td>
+    <td>{{ .Prdno}}</td>
+    <td>{{ .Prdname}}</td>
+    <td class='digital'>{{formatZero .Qty 0}}</td>
+    <td class='digital'>{{formatZero .Amt 0}}</td>
+    <td class='digital'>{{formatZero .Cost 0}}</td>
+    <td class='digital'>{{formatZero .Profit 0}}</td>
+   </tr>
+  {{end}}
+</table>
+-->
+{{end}}
+{{end}}
+
+{{define "inputJS"}} 
+  <script src="/static/js/sales2023.js" ></script>
+{{end}}

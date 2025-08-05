@@ -1,0 +1,103 @@
+{{define "title"}}模擬PO單{{end}}
+{{define "head_Import"}}
+<link rel='stylesheet' href='/static/css/main.css' type='text/css'> 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.5.3/css/bulma.css"> 
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.6/css/all.css">          
+<link rel='shortcut icon' href='/static/img/favicon.ico' type='image/x-icon'>                   
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700'>      
+<link rel="preconnect" href="https://fonts.googleapis.com">                                     
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>                            
+<link href="https://fonts.googleapis.com/css2?family=Francois+One&display=swap" rel="stylesheet">
+{{end}}
+{{define "main"}}
+
+  <label for="supplier">資料源是否單純GDP商品:</label>
+  <input list="supplier" id="supolier">
+  <datalist id="supplier">
+    <option value="只顯示GDP商品"></option>
+    <option value="不含GDP商品"></option>
+  </datalist>
+  
+  <div>
+      <input type='button' id="getData" name="getPO" value="ERP系統取得模擬PO單" />
+      <input type='button' id="display" name="display" value="修改實際採購數量" />
+  </div>
+  <div class="text-center p-2">
+    <h2>請驗證或更正『實際採購量』，按下『ERP系統產生PO』之按鍵將產生採購單，請謹慎實際數據,thanks</h2>
+    <input type='button' id="exePo" name="exePO" value="ERP系統產生PO單" />
+  </div>
+
+   <table id="myTable" class="table table-bordered table-striped table-sm">
+      <thead>
+        <tr>
+          <th>供應商</th>
+          <th>供應名</th>
+          <th>貨名</th>
+          <th>貨代</th>
+          <th>數量-3個月</th>
+          <th>庫存數</th>
+          <th>未結數</th>
+          <th>未結預採</th>
+          <th>量佔比</th>
+          <th>銷額</th>
+          <th>額佔比</th>
+          <th>平均銷售量ADS</th>
+          <th>層級</th>
+          <th>安全基量</th>
+          <th>最大訂貨量</th>
+          <th>實際採購量</th>
+          <th>在途量</th>
+          <th>請購量</th>
+          <th>月銷量</th>
+        </tr>
+      </thead>
+      <tbody>
+      </tbody>
+   </table>
+
+<img id='baseImg' src='/static/img/Lego.png' alt='brand' height='100px' weight='100px' />
+  <dl class='tablet-desktop'>
+    <dt>公司沿革</dt>
+      <dd>新高橋創立於1978年，為發跡於南台灣的複合式連鎖藥妝店，目前有30家實體門市與網路商城。
+      我們提供親切服務、專業諮詢與最舒適便利的購物環境。
+      始終堅持以「專業心、關懷情」的理念，期許成為您『健康與美麗的好麻吉』。
+      <span class='action'>已達到台灣前五名</span>。
+      </dd>
+    <dt>服務項目</dt>  
+    <dd>
+      <ul class="disableMenu">
+      <li>全方位服務</li>
+      <li>全方位品項</li>
+      <li>專業客戶服務</li>
+      </ul>
+    </dd>
+  </dl>
+  <div>
+    <p>聯繫我們,如有問題請來電或留言，將會儘速為您服務!</p>
+    <p class='tel-link'>Kaoshusing<a href="tel:">0921xxxxxx</a></p>
+  </div>
+
+  <div id="myPopup" class="popup">
+    <span class="close">&times;</span>
+    <p>篩選區塊版</p>
+    <input type="text" id="searchInput" placeholder="請輸入關鍵字">
+    <select multiple id="mySelect">
+    </select>
+    <div id="selectedItems"></div>
+    <button id='clear8'>清除已選</button>
+  </div>
+  <input type='button' id="popW" name="popW" value="選單" />
+
+  <!--video width='320' height='240' controls autoplay loop muted>
+    <source src='/static/img/pomeMV.mp4' type='video/mp4'>
+    <source src='/static/img/pomeMV.mp4' type='video/ogg'>
+  </video-->
+{{end}}
+
+{{define "inputJS"}} 
+  <script src="https://cdn.jsdelivr.net/npm/fuse.js@7.0.0"></script>
+  <script src="/static/js/virtualPO.js" ></script>
+  <script src="/static/js/alterPo.js" ></script>
+  <script src="/static/js/jumpWfilter.js" ></script>
+  <script src="/static/js/note.js" ></script>
+{{end}}

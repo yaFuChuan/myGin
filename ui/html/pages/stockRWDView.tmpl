@@ -1,0 +1,64 @@
+{{define "title"}}手機盤點系統{{end}}
+{{define "head_Import"}}
+  <link rel='stylesheet' href='/static/css/stocktaking.css' type='text/css'>
+  <link rel="apple-touch-icon" sizes="180x180" href="/static/img/hello">
+{{end}}
+
+{{define "main"}} 
+
+
+<h1>
+  各倉盤點系統
+  <img src="/static/img/boss.png" alt="人像" class="bubble-image">
+</h1>
+
+  <!-- 掃描器容器：顯示相機取景畫面與自動調整的掃描框 -->
+  <div id="reader" style="width: 100%; max-width: 600px; margin: auto;"></div>
+
+  <!-- 盤點資料表單 -->
+  <form id="inventoryForm">
+    <!-- 國際條碼欄位，使用者也可手動輸入 -->
+    <label for="barcode">國際條碼:</label>
+    <input type="text" id="barcode" name="barcode" autocomplete="off" required>
+    
+    <!-- 貨品名稱欄位（掃描或根據條碼自動填入） -->
+    <label for="productName">貨品名稱:</label>
+    <input type="text" id="productName" name="productName" autocomplete="off" required>
+    
+    <!-- 門店代號欄位：第一次輸入後後續不清除 -->
+    <label for="storeCode">門店代號:</label>
+    <input type="text" id="storeCode" name="storeCode" autocomplete="off" required>
+    
+    <!-- 批號欄位 -->
+    <label for="batchNumber">批號:</label>
+    <input type="text" id="batchNumber" name="batchNumber" autocomplete="off" required>
+    
+    <!-- 有效日欄位（使用日期選擇器） -->
+    <label for="expiration">有效日:</label>
+    <input type="date" id="expiration" name="expiration" required>
+    
+    <!-- 儲位代號欄位：根據條碼對應貨品資料自動填入 -->
+    <label for="storageCode">儲位代號:</label>
+    <input type="text" id="storageCode" name="storageCode" autocomplete="off" required>
+    
+    <!-- 盤點數量欄位 -->
+    <label for="count">盤點數量:</label>
+    <input type="number" id="count" name="count" autocomplete="off" required>
+    
+    <!-- 暫存按鈕：點選後將表單資料暫存於客戶端，並列出在畫面下方清單 -->
+    <button type="button" id="tempSaveBtn">繼續下一筆</button>
+    
+    <!-- 送出按鈕：點選後將所有暫存資料傳送給後端，送至 ERP -->
+    <button type="button" id="submitBtn">送出至ERP</button>
+  </form>
+
+  <!-- 顯示客戶端暫存盤點清單 -->
+  <div id="tempList">
+    <h2>暫存清單</h2>
+    <ul id="inventoryList"></ul>
+  </div>
+{{end}} 
+{{define "inputJS"}}
+<script src="https://unpkg.com/html5-qrcode" defer></script>
+  <script src="/static/js/stockRWD.js" ></script>
+{{end}} 

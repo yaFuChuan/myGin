@@ -1,0 +1,16 @@
+{{define "title"}}存貨週轉率{{end}}
+{{define "head_Import"}}{{end}} 
+{{define "main"}}
+  <h2>存貨週轉率（次數）資料來源SunLike ERP 成本數據</h2>
+  <label for="startDate">開始日期:</label>
+  <input type="date" id="startDate" name="startDate" required>
+
+  <label for="endDate">結束日期:</label>
+  <input type="date" id="endDate" name="endDate" required>
+
+  <button type="submit" id="getdata">取值</button>
+  <div id="tableContainer"></div>
+{{end}} 
+{{define "inputJS"}}
+  <script src="/static/js/Turnover.js"></script>
+{{end}}

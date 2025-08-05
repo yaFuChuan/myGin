@@ -1,0 +1,23 @@
+{{define "title"}}依日期查詢{{end}}
+{{define "main"}}
+<form action='/sales/Inquiry' method='POST' novalidate>
+	<div>
+		<label>開始日期:</label>
+    {{with .Form.FieldErrors.inquiry}} 
+      <label class='error'>{{.}}</label> 
+    {{end}}
+		<input type='date' name='inquiry' value='{{.Form.Inquiry}}'>
+	</div>
+	<div>
+		<label>截止日期：</label>
+    {{with .Form.FieldErrors.inquiry2}} 
+      <label class='error'>{{.}}</label> 
+    {{end}}
+		<input type='date' name='inquiry2' value='{{.Form.Inquiry2}}'>
+	</div>
+	<div>
+		<input type='submit' value='執行查詢'>
+	</div>
+</form>
+
+{{end}}

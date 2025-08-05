@@ -1,0 +1,41 @@
+{{define "title"}}以斯拉銷售清單{{end}}
+{{define "main"}}
+  {{if .}}
+   <table>
+    <tr class='thh3'>
+      <th colspan=9>
+        <h3>新高橋集團以斯拉,2023銷售清單</h3>
+                                <p> 列印日期:{{currentDate}}</p>
+      </th>
+    </tr>
+
+    <tr class='data1'>
+      <th>貨品名稱</th>
+      <th>單據時間</th>  
+      <th class='digital'>單據號碼</th>
+      <th class='digital'>單據項次</th>
+      <th class='digital'>單據數量</th>
+      <th class='digital'>單據金額</th>
+      <th class='digital'>貨品品號</th>
+      <th class='digital'>成本單價</th>
+      <th class='digital'>取得月份</th>
+    </tr>
+
+    {{range .SaleList}}
+     <tr class='data1'>
+      <td>{{ .PrdName}}</td>
+      <td>{{ .YearMoth}}</td>
+      <td>{{ .DocNum}}</td>
+      <td>{{ .DocItem}}</td>
+      <td class='digital'>{{formatZero .Qty 0}}</td>
+      <td class='digital'>{{formatZero .Amount 0}}</td>
+      <td class='digital'>{{ .ProdNum}}</td>
+      <td class='digital'>{{formatZero .GetUpr 0}}</td>
+      <td>{{ .GetMonth}}</td>
+     </tr>
+    {{end}}
+    </table>
+  </br>
+  </br>
+  {{end}}
+{{end}}

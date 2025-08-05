@@ -1,0 +1,219 @@
+{{define "title"}}銷貨合併帳單{{end}}
+{{define "main"}}
+ {{$cusno :=""}}
+ {{$cusNa :=""}}
+ {{$sales :=""}}
+ {{$t1  :=0.0}}
+ {{$t2  :=0.0}}
+ {{$ar  :=0.0}}
+ {{$spe1 :=0.0}}
+ {{$dis5 :=0.0}}
+ {{$dis7 :=0.0}}
+ {{$spe2 :=0.0}}
+ {{$pound :=0.0}}
+ {{$Period :=.Form.Inquiry}}
+ {{$Period2 :=.Form.Inquiry2}}
+
+
+	{{if .}}
+		<table>
+   {{range .SalesAcc}}
+     {{if eq .Nkg ""}} 
+     <tr class='pagebk'>
+      <tr class='thh3'>
+        <th colspan=9>
+          <h3>新農科技-業務帳單</h3>
+          <h3>查詢期間：{{$Period}} ~ {{$Period2}}</h3>
+                  <p> 列印日期:{{currentDate}}</p>
+        </th>
+      </tr>
+			<tr class='data1'>
+				<th>類別 </th>
+				<th>Sales</th>
+				<th>Invoice</th>
+				<th>單位</th>
+        <th>總重</th>
+        <th>藥重</th>
+        <th>飼料重</th>
+        <th>單價</th>
+        <th>金額</th>
+			</tr>
+        {{$cusno = .Maincus}}
+        {{$cusNa = .Sname}}
+        {{$sales = .Invname}}
+      {{end}}
+
+      {{if and (eq .Nkg "") (eq .Kg "")}}
+        {{$t1   =0.0}}
+        {{$t2   =0.0}}
+        {{$ar   =0.0}}
+        {{$spe1 =0.0}}
+        {{$dis5 =0.0}}
+        {{$dis7 =0.0}}
+        {{$spe2 =0.0}}
+        {{$pound =0.0}}
+      {{end}}
+      {{if eq .Kg ""}}
+        {{$t1 = countRecei $t1 .Amt}}
+        {{$t2 = countRecei $t2 .Bamt}}
+      {{end}}
+      {{if eq .Kind "主飼料小計"}}
+        {{$pound = .Pound}}
+      {{end}}
+      {{if eq .Kind "藥品五折優惠"}}
+        {{$dis5 = .Amt }}
+      {{end}}
+      {{if eq .Kind "外帶七折優惠"}}
+        {{$dis7 = .Amt}}
+      {{end}}
+      {{if eq .Kind "特別添加/原料依主飼料單價計"}}
+        {{$spe2 = .Amt}}
+      {{end}}
+      {{if eq .Kind "特別客戶優惠"}}
+        {{$spe1 = .Amt}}
+      {{end}}
+      {{if eq .Kind "折扣小計"}}
+        {{$ar = secondPositive $t1 .Amt $spe1}}
+      {{end}}
+			  <tr class='data1'>
+					<td>{{.Kind}}</td>
+					<td>{{.Sname}}</td>
+					<td>{{.Invname}}</td>
+					<td class='digital'>{{.Kg}}</td>
+          <td class='digital'>{{formatZero .Pound 2}}</td>
+          <td class='digital'>{{formatZero .Medicine 1}}</td>
+          <td class='dcenter'>{{formatZero .KgQty 1}}</td>
+          <td class='digital'>{{formatZero .Upr 1}}</td>
+          <td class='digital'>{{formatZero .Amt 0}}</td>
+				</tr>
+
+       {{if eq .Kind "折扣小計"}}
+        <tr class='t1'>
+          <th>總計應付金額</th>
+          <td colspan=8>{{formatZero $t1 0}}</td>
+        </tr>
+        <tr class='pagebk2'>
+          <th>特別優惠應付金額</th>
+          <td colspan=8>{{formatZero $t2 0}}</td>
+        </tr>
+       {{end}}
+      
+       
+      {{if eq .Kind "折扣小計"}}
+      <tr>
+      <tr class='thh3'>
+        <th colspan=9>
+             <h3>
+                  新農科技股份有限公司<br/> 
+                    應收帳款折讓簽呈單<br/> 
+                                        <h6> 列印日期:{{currentDate}}</h6>
+             </h3>
+        </th>
+      </tr>
+
+			<tr class='dis0'>
+        <th colspan=1>客戶名稱</th>
+        <td colspan=1>{{$cusNa}}</td>
+        <td colspan=1>客戶編號</td>
+        <td colspan=2>{{$cusno}}</td>
+        <td colspan=2>承辦業務</td>
+        <td colspan=2>{{$sales}}</td>
+      </tr>
+
+      <tr class='dis0'>
+        <th colspan=1>應收帳款期間</th>
+        <td colspan=8>銷貨日起:{{$Period}}~銷貨日迄:{{$Period2}}</td>
+      </tr>   
+			<tr class='dis1'>
+        <th colspan=1>應收帳款總金額(A)</th>
+        <td colspan=8>{{formatZero $ar 0}}</td>
+      </tr>
+			<tr class='dis1'><th colspan=1>折讓(1)</th><td colspan=4>藥品五折優惠</td><td colspan=4 >{{formatZero $dis5 0 "-"}}</td></tr>
+			<tr class='dis1'><th colspan=1>折讓(2)</th><td colspan=4>外帶藥品七折優惠</td><td colspan=4>{{formatZero $dis7 0 "-"}}</td></tr>
+			<tr class='dis1'><th colspan=1>折讓(3)</th><td colspan=4>配方添加優惠</td><td colspan=4 ></td></tr>
+			<tr class='dis1'><th colspan=1>折讓(4)</th><td colspan=4>配方原料優惠</td><td colspan=4 ></td></tr>
+
+      <tr class='dis1'><th colspan=1></th><td colspan=4>特別添加/原料依主飼料單價計</td><td colspan=4 >{{formatZero $spe2 0 "-"}}</td></tr>
+      <tr class='dis1'><th colspan=1>折讓(5)</th><td colspan=4>漲跌價折讓<br/>(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)KG*(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)元</td><td colspan=4 ></td></tr>
+      <tr class='dis1'><th colspan=1>折讓(6)</th><td colspan=4>新客戶策略優惠<br/>(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)KG*(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)元</td><td colspan=4></td></tr>
+      <tr class='dis1'><th colspan=1>折讓(7)</th><td colspan=4>其他:                </td><td colspan=4></td></tr>
+      <tr class='dis1'><th colspan=1>折讓(8)</th><td colspan=4>其他:                </td><td colspan=4></td></tr>
+			<tr class='dis1'><th colspan=5>(B)折讓總計金額SUM(1)~(8)</th><td colspan=4></td></tr>
+      <tr class='dis1'><th colspan=1>(C)尚不沖帳金額</th><td colspan=1></td><th colspan=3>收回款項總額<br />(A)-(B)-(C)</th><td colspan=4></td></tr>
+      <tr class='dis1'><th colspan=2>(D)業務折讓總額SUM (6)~(8)<td colspan=3>*必填,否則簽呈無效</td></th><td colspan=4></td></tr>
+      <tr class='dis1'><th colspan=5>(E)總重量(包括飼料丶添加物)</th><td colspan=4>{{formatZero $pound 0}} 單位:KG</td></tr>
+      <tr class='dis1'><th colspan=2>折讓後每公斤平均優惠(D)/(E)<td colspan=3>*必填,否則簽呈無效</td></th><td colspan=4></td></tr>
+      <tr class='dis3'>
+        <th colspan=2>部經理</th>
+        <th colspan=2>區主管</th>
+        <th colspan=2>申請人</th>
+        <th colspan=3 rowspan=4>其他備註:</th>
+      </tr>
+      <tr class='dis3'>
+        <td  colspan=2></td>
+        <td  colspan=2></td>
+        <td  colspan=2></td>
+      </tr>
+      <tr class='dis4'>
+        <th colspan=2>總經理</th>
+        <th colspan=2>帳務覆核</th>
+        <th colspan=2>帳務組</th>
+      </tr>
+      <tr class='dis4'>
+        <td  colspan=2></td>
+        <td  colspan=2></td>
+        <td  colspan=2></td>
+      </tr>
+     </tr>
+     {{end}}<!--second page if-->
+
+    {{end}}
+    </table>
+
+    <table>
+    {{range .SalesAcc}}
+     {{if eq .Nkg ""}}
+    <tr class='pagebk'>
+      <tr class='thh3'>
+        <th colspan=9>
+             <h3>
+                  <p>新農科技股份有限公司</p> 
+                  <p> 應收帳款折讓簽呈單</p> 
+                                        <h6> 列印日期:{{currentDate}}</h6>
+             </h3>
+        </th>
+      </tr>
+			<tr class='data1'>
+				<th>類別 </th>
+				<th>Sales</th>
+				<th>Invoice</th>
+				<th>單位</th>
+        <th>總重</th>
+        <th>藥重</th>
+        <th>飼料重</th>
+        <th>實收單價</th>
+        <th>金額</th>
+			</tr>
+      {{end}}
+      {{if or (eq .Nkg "") (eq .Nkg "KG")}}
+			<tr class='data1'>
+					<td>{{.Kind}}</td>
+					<td>{{.Sname}}</td>
+					<td>{{.Invname}}</td>
+					<td class='digital'>{{.Kg}}</td>
+          <td class='digital'>{{formatZero .Pound 2}}</td>
+          <td class='digital'>{{formatZero .Medicine 1}}</td>
+          <td class='dcenter'>{{formatZero .KgQty 1}}</td>
+          <td class='digital'>{{formatZero .Bupr 1}}</td>
+          <td class='digital'>{{formatZero .Reserve 0}}</td>
+			</tr>
+    </tr>
+     {{end}}
+   {{end}}
+   </table>
+
+
+  {{else}}
+        <p>There's nothing to see here... yet!</p>
+  {{end}}
+{{end}}

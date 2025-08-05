@@ -1,0 +1,56 @@
+:root {
+  --bg-color: #659494;
+  --text-color: #fff;
+}
+
+header,
+nav,
+section,
+div,
+aside,
+footer {
+  background: var(--bg-color);
+  border-radius: 5px;
+  color: var(--text-color);
+  font-family: arial, san-serif;
+  font-size: 30px;
+  text-align: center;
+  border: 2px solid red;
+  padding: 20px;
+  margin-bottom: 25px;
+}
+
+header:before,
+nav:before,
+div:before,
+footer:before {
+  content: '⭐';
+}
+
+header:after,
+nav:after,
+div:after,
+footer:after {
+  content: '🌞';
+}
+
+section {                            
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+}                                    
+
+
+section div {
+  border: 2px solid white;
+  padding: 30px;
+  margin: 10px;
+}
+
+aside {
+  float: left;
+  width: calc(40% - 140px);
+}
+
+footer {
+  clear: both;
+}

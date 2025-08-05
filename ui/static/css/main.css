@@ -1,0 +1,141 @@
+body {
+  font-family: Arial,Helvetica,sans-serif;
+}
+/*
+tbody > tr > td {
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+*/
+thead {
+    position: sticky;
+    top: 0;
+    background-color: #fff; /* 或其他背景色 */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 添加陰影效果 */
+}
+
+thead th:nth-child(3) {
+  width: 15px;
+  white-space: pre-wrap;
+}
+
+tbody tr td:nth-child(3) {
+  white-space: pre-wrap;
+  width: 15px;
+}
+
+.text-center h2 {
+  margin: 5px;
+  color: red;
+}
+
+ul > li{
+  list-style-type:circle;
+}
+
+a[target="_blank"] {
+  text-decoration:underline;
+}
+
+header {
+  text-align: center; /* 水平居中 */
+  height: 150px; /* 設定 header 高度 */
+  display: flex; /* 使用 Flexbox 布局 */
+  justify-content: center; /* 水平居中 */
+  align-items: center; /* 垂直居中 */
+}
+
+img {
+  flex: 1;
+  object-fit: cover;
+  max-width: 80%;
+
+}
+
+.menu li:hover .subMenu  {
+  display: block;
+  display: inline;
+  transition: all 0.3s ease-in-out;
+  transform: scale(1.1);
+}
+
+.subMenu {
+  display: none;
+}
+
+
+media (max-width: 768px) {
+}
+
+#myButton {
+  font-family: sans-serif;
+  font-size: 24px;
+  font-weight: lighter;
+  background-color: #FFF;
+  border: 3px #333 solid;
+  padding: 15px;
+}
+
+#myTable {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+}
+
+#myTable th, #myTable td {
+  padding: 3px; /* original 18 alter 3 2025/2/19 stocktaking*/
+  text-align: center; /* 確保文字對齊 */
+  border: 1px solid #ccc; /* 可視化表格框線 */
+  word-wrap: break-word;/* 讓文字自動折行 */
+  white-space: pre-wrap; /* 支援多行文字顯示 */
+}
+
+#myTable th {
+  background-color: #f5f5f5;/* 表頭背景色 */
+}
+
+#myTable tr td:hover {
+  background-color: aliceblue; /* 滑鼠懸停效果 */
+}
+
+
+
+button {
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background-color: #ffcccc;
+}
+
+#inv_Tur tr td:hover {
+  background-color: aliceblue;
+  white-space: pre-wrap;
+}
+
+nav {
+    background-color: #FEFFF2;
+    padding: 5px;
+    display: flex;
+    justify-content: right;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+}
+
+nav li {
+  margin: 0 20px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #333;
+  padding: 5px 10px;
+  border-radius: 5px;
+  background-color 0.3s ease;
+}
+
+nav a:hover {
+  background-color: #e0e0e0;
+}

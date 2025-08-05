@@ -1,0 +1,97 @@
+{{define "title"}}停止下單{{end}}
+{{define "main"}}
+  {{if .Form}}
+  <form action='/credit' method='POST' novalidate>
+    <div>
+      <label>依業務:</label>
+      {{with .Form.FieldErrors.empno}}
+        <label class='error'>{{.}}</label>
+      {{end}}
+      <input list="emp"  name='empno' value='{{.Form.Empno}}' >
+      <datalist id="emp">
+      {{range .Emps}}
+        <option value='{{.Emp}}'>{{.Name}}</option>
+      {{end}}
+      </datalist>
+      <input type='submit' value='執行查詢'>
+    </div>
+    <!--div>
+      <label>依客戶:</label>
+      <input list="cust" name='cusno' value='{{.Form.Cusno}}'>
+      <datalist id="cust">
+      {{range .Cust}}
+        <option value='{{.Cus_no}}'>{{.Name}}</option>
+      {{end}}
+      </datalist>
+    </div-->
+  </form>
+  {{end}}
+  {{if .Credit}}
+    <table>
+      <tr class='thh3'>
+        <th colspan=11>
+          <h3>新農科技股份有限公司</h3>
+                          <p> 列印日期:{{currentDate}}</p>
+        </th>
+      </tr>
+      <tr class='data1'>
+        <th>no</th>
+        <th>來源</th> 
+        <th>銷售日</th>
+        <th>銷售單號</th> 
+        <th>上屬客戶</th>
+        <th>上屬No</th>
+        <th>銷售客戶</th> 
+        <th>銷售客No</th>
+        <th>應收帳款</th> 
+        <th>預付款</th>
+        <th>預設付款方式</th>
+        <th>虛擬沖款</th>
+      </tr>
+      {{range .Credit}}
+      <tr id='data2' class='arList'>
+        <td>{{ .No }}</td>
+        <td>{{ .Comp }}</td>
+        <td>{{ humanDate .Saldd }}</td>
+        <td>{{ .Salno }}</td> 
+        <td>{{ .Mcusa}}</td>
+        <td>{{ .Mcus}}</td>
+        <td>{{ .Cusa }}</td>
+        <td>{{ .Cusno }}</td>
+        <td>{{formatZero .Ar 0}}</td> 
+        <td>{{formatZero .PreRe 0}}</td>
+        <td>
+        {{ if eq .No 1 }} 
+          <input type="checkbox" id="contr" name="contr" />
+          <label for="contr" class="checkbox-inline">不控制</label>
+          <input type="checkbox" id="cash" name="cash" />
+          <label for="cash" class="checkbox-inline">現金</label>
+          <input type="checkbox" id="bill" name="bill" />
+          <label for="bill" class="checkbox-inline">票據</label>
+          <input type="checkbox" id="remit" name="remit" />
+          <label for="bill" class="checkbox-inline">匯款</label>
+          <input type="checkbox" id="batch" name="batch" />
+          <label for="bill" class="checkbox-inline">批結</label>
+          <br />
+          <label for="nextM" class="checkbox-inline">下幾個月</label>
+          <input type="text" id="nextM" name="nextM" size="5"/>
+          <label for="nextD" class="checkbox-inline">幾號</label>
+          <input type="text" id="nextD" name="nextD" size="5"/>
+        {{ end }}
+        </td>
+        <td>
+        <!--
+          <label for="v_cash" class="checkbox-inline">現金</label>
+          <input type="text" id="v_cash" name="v_cash" size="8" />
+          <label for="v_remit">票據</label>
+          <input type="text" id="v_remit" name="v_remit" size="8" />
+          <input type="text" id="v_remit" name="v_remit" size="8" />票號
+          <input type="date" id="v_remit" name="v_remit" size="8" />兌現日
+        -->
+        </td>
+      </tr>
+      {{end}}
+     </table>
+  {{end}}
+<img src='' alt='' id='img3' />
+{{end}}

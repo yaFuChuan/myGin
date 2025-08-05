@@ -1,0 +1,37 @@
+{{define "title"}}銷貨統計表{{end}}
+{{define "main"}}
+
+	{{if .}}
+		<table>
+     <tr class='pagebk'>
+      <tr class='thh3'>
+        <th colspan=7>
+          <h3>新農科技股份有限公司</h3>
+                  <p> 列印日期:{{currentDate}}</p>
+        </th>
+      </tr>
+			<tr class='data1'>
+				<th>業務 </th>
+				<th>客戶代號</th>
+				<th>客戶簡稱</th>
+				<th>銷售公斤數</th>
+        <th>發票金額</th>
+        <th>特別優惠應付金額</th>
+        <th>總計應付金額</th>
+			</tr>
+
+     {{range .SalesAcc}}
+
+			  <tr class='data1'>
+					<td>{{.Kind}}</td>
+					<td>{{.Sname}}</td>
+					<td>{{.Invname}}</td>
+					<td class='st'>{{formatZero .KgQty 1}}</td>
+          <td class='st'>{{formatZero .Upr 0}}</td>
+          <td class='st'>{{formatZero .Bamt 0}}</td>
+          <td class='st'>{{formatZero .Payable 0}}</td>
+				</tr>
+     {{end}}
+    </table>
+  {{end}}
+{{end}}

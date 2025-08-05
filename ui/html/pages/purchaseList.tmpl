@@ -1,0 +1,43 @@
+{{define "title"}}購買存貨清單{{end}}
+{{define "main"}}
+  {{if .}}
+   <table>
+    <tr class='thh3'>
+      <th colspan=10>
+        <h3>2023購買存貨清單</h3>
+                                <p> 列印日期:{{currentDate}}</p>
+      </th>
+    </tr>
+
+    <tr class='data1'>
+      <th>單據日期</th>
+      <th>單據時間</th>  
+      <th class='digital'>單據種類</th>
+      <th class='digital'>單據號碼</th>
+      <th class='digital'>單據項次</th>
+      <th class='digital'>庫存進出</th>
+      <th class='digital'>銷售數量</th>
+      <th class='digital'>單據金額</th>
+      <th class='digital'>貨品品號</th>
+      <th class='digital'>貨品品名</th>
+    </tr>
+
+    {{range .PurchaseList}}
+     <tr class='data1'>
+      <td>{{ .DocDate}}</td>
+      <td>{{ .DocTime}}</td>
+      <td>{{ .DocKind}}</td>
+      <td>{{ .DocNum}}</td>
+      <td>{{ .DocItem}}</td>
+      <td>{{ .Stock_IO}}</td>
+      <td class='digital'>{{formatZero .Qty 0}}</td>
+      <td class='digital'>{{formatZero .Amount 0}}</td>
+      <td class='digital'>{{ .ProdNum}}</td>
+      <td class='digital'>{{ .ProdNam}}</td>
+     </tr>
+    {{end}}
+    </table>
+  </br>
+  </br>
+  {{end}}
+{{end}}

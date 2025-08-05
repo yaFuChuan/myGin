@@ -1,0 +1,53 @@
+{{define "title"}}銷貨合併帳單{{end}}
+{{define "main"}}
+  <div id="hero" class="tablet-desktop">
+    <img src='/static/img/feed.png' alt='feed'>
+  </div>
+
+  <div class="mobile">
+    <h3>新農科技mobile icloud帳單</h3>
+    <p>Boot Camp: TR 5am &amp; 5pm</p>
+    <p>Cardio: MWF 6am &amp; 6pm</p>
+    <p>Kickboxing: MWF 8am &amp; 7:15pm</p>
+    <p>Spinning: TR 6am &amp; 6pm</p>
+    <p>Yoga: TR 6am &amp; 6pm</p>
+    <p>Zumba: MWF 7am &amp; 6pm</p>
+  </div>
+
+  <div class="tablet-desktop">
+  {{if .}}
+  		<table>
+        <caption>新農科技股份有限公司
+          <p> 列印日期:{{currentDate}}</p>
+        </caption>
+        <tr>
+          <th>類別 </th>
+          <th>銷售品名</th>
+          <th>發票品名</th>
+          <th>單位</th>
+          <th>總重</th>
+          <th>藥重</th>
+          <th>飼料重</th>
+          <th>單價</th>
+          <th>金額</th>
+        </tr>
+      {{range .SalesAcc}}
+        <tr>
+          <td>{{.Kind}}</td>
+          <td>{{.Sname}}</td>
+          <td>{{.Invname}}</td>
+          <td>{{.Kg}}</td>
+          <td class='align-r'>{{formatZero .Pound 2}}</td>
+          <td class='align-r'>{{formatZero .Medicine 1}}</td>
+          <td class='align-r'>{{formatZero .KgQty 1}}</td>
+          <td class='align-r'>{{formatZero .Upr 1}}</td>
+          <td class='align-r'>{{formatZero .Amt 0}}</td>
+        </tr>
+      {{end}}
+  
+       </table>
+  </div>
+  {{else}}
+        <p>There's nothing to see here... yet!</p>
+  {{end}}
+{{end}}

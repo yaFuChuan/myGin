@@ -1,0 +1,78 @@
+{{define "title"}}最大訂購量{{end}}
+{{define "head_Import"}}
+
+    <link rel='stylesheet' href='/static/css/main.css' type='text/css'>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.5.3/css/bulma.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.6/css/all.css">
+		<link rel='shortcut icon' href='/static/img/favicon.ico' type='image/x-icon'>
+		<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700'>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Francois+One&display=swap" rel="stylesheet">
+{{end}}
+{{define "main"}}
+  <div>
+    <input type='button' id="exPo" name="exePO" value="ERP系統產生PO單" />
+  </div>
+   <div class="text-center p-2">
+     <h2>請驗證或更正『實際採購量』，按下『ERP系統產生PO』之按鍵將產生採購單，請謹慎實際數據,thanks</h2> 
+     {{if .}}
+       <table class="table table-bordered table-striped table-sm">
+          <thead>
+            <tr>
+              <th>供應商</th>
+              <th>供應名</th>
+              <th>貨名</th>
+              <th>貨代</th>
+              <th>數量</th>
+              <th>庫存數</th>
+              <th>總數</th>
+              <th>量佔比</th>
+              <th>銷額</th>
+              <th>總額</th>
+              <th>額佔比</th>
+              <th>平均銷售量ADS</th>
+              <th>層級</th>
+              <th>安全基量</th>
+              <th>最大訂貨量</th>
+              <th>實際採購量</th>
+            </tr> 
+          </thead>
+          <tbody>
+            {{range .PurchaseQty}}
+                <tr>
+                  <td>{{.Supplier}}</td>
+                  <td>{{.Supplier_n}}</td>
+                  <td>{{.PrdName}}</td>
+                  <td>{{.PrdNo}}</td>
+                  <td>{{.Qty}}</td>
+                  <td>{{.Stock}}</td>
+                  <td>{{formatZero .Qty_Sum 0}}</td>
+                  <td>{{formatPercent .Qpercent 4}}</td>
+                  <td>{{.Samt}}</td>
+                  <td>{{formatZero .Samt_Sum 0}}</td>
+                  <td>{{formatPercent .Spercent 4}}</td>
+                  <td>{{formatZero .S_ADS 5}}</td>
+                  <td>{{.Level}}</td>
+                  <td>{{formatZero .Safe_Qty 0}}</td>
+                  <td>{{formatZero .Max_Qty 0}}</td>
+                  <!--td onclick="alterQty(this)">{{formatZero .Purchase 0}}</td-->
+                  <td>{{formatZero .Purchase 0}}</td>
+                </tr>
+            {{end}} 
+          </tbody>
+       </table>
+     {{ end }}
+   </div>
+
+   <ul>
+      <li>List item 1</li>
+      <li>List item 2</li>
+   </ul>
+{{end}}
+
+{{define "inputJS"}} 
+  <script src="/static/js/alterPo.js" ></script>
+  <!--<script src="/static/js/seed.js" ></script>-->
+{{end}}

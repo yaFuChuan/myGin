@@ -1,0 +1,44 @@
+{{define "base"}}
+<!doctype html>
+<html lang='zh-Hant-TW'>
+	<head>
+		<meta charset='utf-8'>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+		<title>{{template "title" .}} - 巨興集團</title>
+
+    {{template "head_Import" .}}
+<!--
+    <link rel='stylesheet' href='/static/css/main.css' type='text/css'>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.5.3/css/bulma.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.6/css/all.css">
+		<link rel='shortcut icon' href='/static/img/favicon.ico' type='image/x-icon'>
+		<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700'>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Francois+One&display=swap" rel="stylesheet">
+-->
+	</head>
+	<body>
+
+		{{template "nav" .}}
+
+		<main id="myMain">
+			{{template "main" .}}
+		</main>
+
+		<footer>
+      <p>&#128004;Powered by <a href='https://google.com/'>Fu Chuan Office</a> 
+      &#169; Copyright {{.CurrentYear}}.All Rights Reserved.</p>
+      <p>Contact Us:<a href='mailto:energy302@yahoo.com.tw'>&#128231;</a></p>
+		</footer>
+
+    <!--script src="https://unpkg.com/vue@next"></script-->
+    {{template "inputJS" .}}
+
+    <noscript>
+      <p>新高橋備註</p>
+    </noscript>
+	</body>
+</html>
+{{end}}

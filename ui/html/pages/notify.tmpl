@@ -1,0 +1,17 @@
+{{define "title"}}notify{{end}}
+{{define "main"}}
+<!DOCTYPE html>
+
+    <script>
+      function oAuth2() {
+        var URL = 'https://notify-bot.line.me/oauth/authorize?';
+        URL += 'response_type=code';
+        URL += '&client_id=[yAP6jcNQcrkLI6Hd8DTFiq]';
+        URL += '&redirect_uri=[http://pomelo.ddns.net]';
+        URL += '&scope=notify';
+        URL += '&state=NO_STATE';
+        window.location.href = URL;
+      }
+    </script>
+<button onclick="oAuth2();"> 連結到 LineNotify 按鈕 </button>
+{{end}}

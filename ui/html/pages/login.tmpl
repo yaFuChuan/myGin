@@ -1,0 +1,55 @@
+
+{{define "title"}}登入{{end}}
+
+{{define "head_Import"}}
+  <link rel='stylesheet' href='/static/css/main.css' type='text/css'>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.5.3/css/bulma.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.6/css/all.css">
+  <link rel='shortcut icon' href='/static/img/favicon.ico' type='image/x-icon'>
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700'>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Francois+One&display=swap" rel="stylesheet">
+{{end}}
+
+{{define "main"}}
+<section class="section">
+  <div class="container">
+    <h1 class="title">登入系統</h1>
+
+    {{range .Form.NonFieldErrors}}
+      <div class="notification is-danger">{{.}}</div>
+    {{end}}
+
+    <form action="/user/login" method="POST" novalidate>
+      <div class="field">
+        <label class="label">Email</label>
+        <div class="control">
+          <input class="input" type="email" name="email" value="{{.Form.Email}}" placeholder="請輸入 Email">
+        </div>
+        {{with .Form.FieldErrors.email}}
+          <p class="help is-danger">{{.}}</p>
+        {{end}}
+      </div>
+
+      <div class="field">
+        <label class="label">密碼</label>
+        <div class="control">
+          <input class="input" type="password" name="password" placeholder="請輸入密碼">
+        </div>
+        {{with .Form.FieldErrors.password}}
+          <p class="help is-danger">{{.}}</p>
+        {{end}}
+      </div>
+
+      <div class="field">
+        <div class="control">
+          <button class="button is-primary" type="submit">登入</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</section>
+{{end}}
+
+{{define "inputJS"}}{{end}}

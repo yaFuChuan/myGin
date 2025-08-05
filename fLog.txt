@@ -1,0 +1,91 @@
+ERROR	2025/07/21 10:07:12 main.go:77: postgreSql conn failure:⚠️ 無法載入 .env，將使用系統環境變數: open .env: no such file or directory
+INFO	2025/07/21 10:07:12 app.receipts 存貨資料排程開始
+INFO	2025/07/21 10:07:12 目前時間已超過排程時間，立即執行一次任務
+INFO	2025/07/21 10:07:12 執行 log 裁切任務
+ERROR	2025/07/21 10:10:05 main.go:77: postgreSql conn failure:⚠️ 無法載入 .env，將使用系統環境變數: open .env: no such file or directory
+INFO	2025/07/21 10:10:05 app.receipts 存貨資料排程開始
+INFO	2025/07/21 10:10:05 目前時間已超過排程時間，立即執行一次任務
+INFO	2025/07/21 10:10:05 執行 log 裁切任務
+INFO	2025/07/21 10:10:05 Starting server on ::http
+ERROR	2025/07/21 10:10:17 server.go:3638: http: TLS handshake error from [::1]:49656: client sent an HTTP request to an HTTPS server
+ERROR	2025/07/21 10:10:19 server.go:3638: http: TLS handshake error from [::1]:49657: EOF
+ERROR	2025/07/21 10:10:19 server.go:3638: http: TLS handshake error from [::1]:49658: EOF
+ERROR	2025/07/21 10:11:21 server.go:3638: http: TLS handshake error from [::1]:49916: client sent an HTTP request to an HTTPS server
+ERROR	2025/07/21 10:11:24 server.go:3638: http: TLS handshake error from [::1]:49917: EOF
+ERROR	2025/07/21 10:11:34 server.go:3638: http: TLS handshake error from [::1]:49964: EOF
+ERROR	2025/07/21 10:11:36 server.go:3638: http: TLS handshake error from [::1]:49983: client sent an HTTP request to an HTTPS server
+ERROR	2025/07/21 10:11:39 server.go:3638: http: TLS handshake error from [::1]:49985: EOF
+ERROR	2025/07/21 10:11:39 server.go:3638: http: TLS handshake error from [::1]:49984: EOF
+ERROR	2025/07/21 10:12:04 server.go:3638: http: TLS handshake error from [::1]:50098: client sent an HTTP request to an HTTPS server
+ERROR	2025/07/21 10:12:09 server.go:3638: http: TLS handshake error from [::1]:50099: EOF
+ERROR	2025/07/21 10:12:09 server.go:3638: http: TLS handshake error from [::1]:50100: EOF
+ERROR	2025/07/21 10:14:04 main.go:77: postgreSql conn failure:⚠️ 無法載入 .env，將使用系統環境變數: open .env: no such file or directory
+INFO	2025/07/21 10:14:04 app.receipts 存貨資料排程開始
+INFO	2025/07/21 10:14:04 目前時間已超過排程時間，立即執行一次任務
+INFO	2025/07/21 10:14:04 執行 log 裁切任務
+INFO	2025/07/21 10:14:04 Starting server on ::http
+ERROR	2025/07/21 10:14:09 server.go:3638: http: TLS handshake error from [::1]:50604: client sent an HTTP request to an HTTPS server
+ERROR	2025/07/21 10:14:14 server.go:3638: http: TLS handshake error from [::1]:50605: EOF
+ERROR	2025/07/21 10:14:19 server.go:3638: http: TLS handshake error from [::1]:50640: EOF
+ERROR	2025/07/21 10:14:24 server.go:3638: http: TLS handshake error from [::1]:50677: EOF
+ERROR	2025/07/21 10:14:48 main.go:77: postgreSql conn failure:⚠️ 無法載入 .env，將使用系統環境變數: open .env: no such file or directory
+INFO	2025/07/21 10:14:48 app.receipts 存貨資料排程開始
+INFO	2025/07/21 10:14:48 目前時間已超過排程時間，立即執行一次任務
+INFO	2025/07/21 10:14:48 執行 log 裁切任務
+INFO	2025/07/21 10:14:48 Starting server on ::http
+INFO	2025/07/21 10:14:54 [::1]:50801 - HTTP/1.1 GET /
+INFO	2025/07/21 10:22:17 [::1]:52638 - HTTP/1.1 GET /
+INFO	2025/07/21 10:26:52 [::1]:52638 - HTTP/1.1 GET /
+ERROR	2025/07/21 11:07:07 main.go:77: postgreSql conn failure:⚠️ 無法載入 .env，將使用系統環境變數: open .env: no such file or directory
+INFO	2025/07/21 11:07:07 app.receipts 存貨資料排程開始
+INFO	2025/07/21 11:07:07 目前時間已超過排程時間，立即執行一次任務
+INFO	2025/07/21 11:07:07 執行 log 裁切任務
+INFO	2025/07/21 11:07:07 Starting server on ::http
+INFO	2025/07/21 11:07:14 [::1]:62937 - HTTP/1.1 GET /
+INFO	2025/07/21 11:07:18 [::1]:62955 - HTTP/1.1 GET /
+INFO	2025/07/21 11:07:23 [::1]:62977 - HTTP/1.1 GET /
+INFO	2025/07/21 11:07:27 [::1]:62999 - HTTP/1.1 GET /
+INFO	2025/07/21 11:07:28 [::1]:62999 - HTTP/1.1 GET /
+ERROR	2025/07/21 11:19:12 main.go:77: postgreSql conn failure:⚠️ 無法載入 .env，將使用系統環境變數: open .env: no such file or directory
+INFO	2025/07/21 11:19:12 app.receipts 存貨資料排程開始
+INFO	2025/07/21 11:19:12 目前時間已超過排程時間，立即執行一次任務
+INFO	2025/07/21 11:19:12 執行 log 裁切任務
+INFO	2025/07/21 11:19:12 Starting server on ::http
+INFO	2025/07/21 11:19:18 [::1]:49481 - HTTP/1.1 GET /
+INFO	2025/07/21 11:19:18 [::1]:49481 - HTTP/1.1 GET /
+INFO	2025/07/21 11:19:19 [::1]:49481 - HTTP/1.1 GET /
+INFO	2025/07/21 11:19:27 [::1]:49481 - HTTP/1.1 GET /
+INFO	2025/07/21 11:19:27 [::1]:49481 - HTTP/1.1 GET /
+ERROR	2025/07/21 13:48:44 main.go:77: postgreSql conn failure:⚠️ 無法載入 .env，將使用系統環境變數: open .env: no such file or directory
+INFO	2025/07/21 13:48:44 app.receipts 存貨資料排程開始
+INFO	2025/07/21 13:48:44 目前時間已超過排程時間，立即執行一次任務
+INFO	2025/07/21 13:48:44 執行 log 裁切任務
+INFO	2025/07/21 13:48:44 Starting server on ::http
+INFO	2025/07/21 13:48:48 [::1]:55417 - HTTP/1.1 GET /
+ERROR	2025/07/21 17:02:27 main.go:77: postgreSql conn failure:⚠️ 無法載入 .env，將使用系統環境變數: open .env: no such file or directory
+INFO	2025/07/21 17:02:27 app.receipts 存貨資料排程開始
+INFO	2025/07/21 17:02:27 目前時間已超過排程時間，立即執行一次任務
+INFO	2025/07/21 17:02:27 執行 log 裁切任務
+INFO	2025/07/21 17:02:27 Starting server on ::http
+INFO	2025/07/21 17:02:43 [::1]:53213 - HTTP/1.1 GET /
+INFO	2025/07/21 17:02:46 [::1]:53213 - HTTP/1.1 GET /
+INFO	2025/07/21 17:06:33 [::1]:54051 - HTTP/1.1 GET /
+INFO	2025/07/21 17:06:34 [::1]:54051 - HTTP/1.1 GET /
+INFO	2025/07/23 14:00:21 [::1]:56839 - HTTP/1.1 GET /
+INFO	2025/07/23 14:00:21 [::1]:56842 - HTTP/1.1 GET /favicon.ico
+INFO	2025/07/23 14:00:21 [::1]:56841 - HTTP/1.1 GET /apple-touch-icon.png
+INFO	2025/07/23 14:00:21 [::1]:56840 - HTTP/1.1 GET /apple-touch-icon-precomposed.png
+ERROR	2025/08/05 15:41:02 main.go:77: postgreSql conn failure:⚠️ 無法載入 .env，將使用系統環境變數: open .env: no such file or directory
+INFO	2025/08/05 15:41:02 app.receipts 存貨資料排程開始
+INFO	2025/08/05 15:41:02 目前時間已超過排程時間，立即執行一次任務
+INFO	2025/08/05 15:41:02 執行 log 裁切任務
+INFO	2025/08/05 15:41:02 Starting server on :localhost:4000
+INFO	2025/08/05 15:41:10 127.0.0.1:59692 - HTTP/1.1 GET /
+INFO	2025/08/05 15:41:10 127.0.0.1:59691 - HTTP/1.1 GET /favicon.ico
+INFO	2025/08/05 15:41:15 127.0.0.1:59692 - HTTP/1.1 GET /
+INFO	2025/08/05 15:41:17 127.0.0.1:59691 - HTTP/1.1 GET /getAcc/
+INFO	2025/08/05 15:41:17 127.0.0.1:59692 - HTTP/1.1 GET /static/css/getAcc.css
+INFO	2025/08/05 15:41:17 127.0.0.1:59691 - HTTP/1.1 GET /static/js/getAcc.js?v=1754379677
+INFO	2025/08/05 15:41:18 127.0.0.1:59691 - HTTP/1.1 GET /getCust/
+INFO	2025/08/05 15:41:18 fetch cust list: 8筆,time:0 秒
+INFO	2025/08/05 15:41:41 127.0.0.1:59692 - HTTP/1.1 POST /api/reconciliation
