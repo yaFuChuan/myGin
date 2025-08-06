@@ -1,4 +1,4 @@
-module github.com/yaFuChuan/myGin
+module github.com/yaFuChuan/myGin/v2
 
 go 1.24.5
 
